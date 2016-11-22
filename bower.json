@@ -1,0 +1,23 @@
+{
+  "name": "speak.out",
+  "homepage": "https://github.com/ATGC-Cleveland/speak.out",
+  "authors": [
+    "Miquel Brazil <miquel@mobrazilliance.com>"
+  ],
+  "description": "Frontend Libraries for the AHF Speakout Application",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "webroot/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "^2.2.6",
+    "jquery-ui": "^1.12.1"
+  }
+}
