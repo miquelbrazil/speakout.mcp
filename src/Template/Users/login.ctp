@@ -43,11 +43,13 @@
 
     	<main class="sixteen wide column" style="height: 100%;">
             <article class="ui middle aligned centered relaxed padded grid" style="height: inherit;">
-                <div class="three wide column">
+                <div class="four wide column">
                     <header class="ui top attached header">
                         <img class="ui fluid image" src="webroot/img/ahf-mcp-logo.png" />
                     </header>
                     <div class="ui bottom attached segment">
+
+                        <?= $this->Flash->render( 'auth' ) ?>
 
                         <?= $this->Form->create( null , [ 'url' => false , 'class' => 'ui big form' ] ); ?>
                             <div class="field"><?= $this->Form->input( 'username' , [ 'type' => 'text' , 'label' => false , 'error' => false , 'placeholder' => 'Enter Username' ] ) ?></div>
