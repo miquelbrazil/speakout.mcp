@@ -18,6 +18,10 @@
   ],
   "dependencies": {
     "semantic": "^2.2.6",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "chartist": "^0.10.1",
+    "semantic-ui-calendar": "^0.0.6",
+    "moment": "^2.17.1",
+    "jquery-serialize-object": "^2.5.0"
   }
 }
