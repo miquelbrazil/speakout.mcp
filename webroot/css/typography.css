@@ -1,3 +1,7 @@
 input {
     font-family: "open-sans";
 }
+
+.tk-open-sans {
+    font-family:"open-sans",sans-serif !important;
+}

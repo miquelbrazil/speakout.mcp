@@ -1,0 +1,15 @@
+.ui.table th {
+    border-top: 1px solid rgba(34, 36, 38, .1);
+}
+
+.ui.table tr:first-child th {
+    border-top: none;
+}
+
+table caption {
+    display: none;
+}
+
+.inverted.header {
+    background-color: rgb(151,26,20) !important;
+}

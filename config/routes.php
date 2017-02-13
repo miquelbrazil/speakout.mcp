@@ -41,7 +41,60 @@ use Cake\Routing\Route\DashedRoute;
  * `:action` markers.
  *
  */
-Router::defaultRouteClass(DashedRoute::class);
+//Router::defaultRouteClass('Route');
+Router::defaultRouteClass( DashedRoute::class );
+
+Router::connect( '/login' , [ 'controller' => 'Users' , 'action' => 'login' ] );
+
+Router::prefix( 'mobilizer' , function ( $routes ) {
+
+    $routes->connect(
+        '/dashboard',
+        [ 'controller' => 'Events' , 'action' => 'index' ]
+    );
+
+    $routes->scope( '/events' , function ( $routes ) {
+
+        $routes->connect(
+            '/',
+            [ 'controller' => 'Events' , 'action' => 'index' ]
+        );
+
+        $routes->connect(
+            '/new',
+            [ 'controller' => 'Events' , 'action' => 'add' ]
+        );
+
+        $routes->connect(
+            '/view/:id',
+            [ 'controller' => 'Events' , 'action' => 'view' ],
+            [ 'pass' => [ 'id' ] ]
+        );
+
+        $routes->connect(
+            '/upload-media',
+            [ 'controller' => 'Events' , 'action' => 'uploadMedia' ]
+        );
+    });
+
+});
+
+Router::prefix( 'admin' , function ( $routes ) {
+
+    $routes->connect(
+        '/dashboard',
+        [ 'controller' => 'Events' , 'action' => 'index' ]
+    );
+
+    $routes->scope( '/events' , function ( $routes ) {
+        $routes->connect(
+            '/view/:id',
+            [ 'controller' => 'Events' , 'action' => 'view' ],
+            [ 'pass' => [ 'id' ] ]
+        );
+    });
+
+});
 
 Router::scope('/', function (RouteBuilder $routes) {
     /**
@@ -52,12 +105,37 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $routes->connect( '/splash' , [ 'controller' => 'Pages', 'action' => 'display', 'splash' ] );
 
-    $routes->connect( '/login' , [ 'controller' => 'Users' , 'action' => 'login' ] );
+    $routes->scope( '/events' , function ( $routes ) {
+
+        $routes->connect(
+            '/',
+            [ 'controller' => 'Events' , 'action' => 'index' ]
+        );
+
+        $routes->connect(
+            '/new',
+            [ 'controller' => 'Events' , 'action' => 'add' ]
+        );
+    });
+
+    $routes->scope( '/event' , function ( $routes ) {
+
+        $routes->connect(
+            '/',
+            [ 'controller' => 'Events' , 'action' => 'view' , 0 ]
+        );
+
+        $routes->connect(
+            '/:id',
+            [ 'controller' => 'Events' , 'action' => 'view' ],
+            [ 'pass' => [ 'id' ] ]
+        );
+    });
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    //$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
     /**
      * Connect catchall routes for all controllers.

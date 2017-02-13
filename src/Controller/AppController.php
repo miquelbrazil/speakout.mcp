@@ -43,7 +43,21 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent( 'Auth' );
+        $this->loadComponent( 'Auth' , [
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login',
+                'prefix' => false,
+            ],
+        ]);
+    }
+
+    public function beforeFilter( Event $event ) {
+
+        $this->viewBuilder()->layout( 'standard' );
+
+        $this->set( 'user_fullname' , $this->Auth->user( 'fullname' ) );
+        $this->set( 'user' , $this->Auth->user( 'username' ) );
     }
 
     /**
@@ -52,8 +66,7 @@ class AppController extends Controller
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
-    public function beforeRender(Event $event)
-    {
+    public function beforeRender( Event $event ) {
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {

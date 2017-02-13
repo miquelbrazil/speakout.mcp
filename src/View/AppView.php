@@ -34,7 +34,14 @@ class AppView extends View
      *
      * @return void
      */
-    public function initialize()
-    {
+    public function initialize() {
+        parent::initialize();
+
+        $this->loadHelper( 'Form' , [
+            'templates' => 'app_templates',
+            'widgets' => [
+                'calendar' => [ 'Calendar' ]
+            ]
+        ]);
     }
 }

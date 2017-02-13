@@ -30,9 +30,11 @@ class UsersTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('users');
+        $this->table( 'users' );
         $this->displayField('id');
         $this->primaryKey('id');
+
+        $this->hasMany( 'Events' );
 
         $this->addBehavior('Timestamp', [
             'events' => [
