@@ -223,3 +223,4 @@ if (Configure::read('debug')) {
 }
 
 Plugin::load('Migrations');
+require __DIR__ . '/tools.php';
