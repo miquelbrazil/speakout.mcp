@@ -32,6 +32,7 @@
 
     <?= $this->Html->script( 'https://use.typekit.net/bgz6iwu.js' ) ?>
     <?= $this->Html->scriptBlock( 'try{Typekit.load({ async: true });}catch(e){}', [ 'defer' => true ] ); ?>
+    <?= $this->Html->script( 'google.js' ); ?>
 
     <?= $this->Html->script( '/lib/jquery/dist/jquery.min.js' ) ?>
     <?= $this->Html->script( '/lib/jquery-ui/jquery-ui.min.js' , [ 'block' => 'footer_js' ] ) ?>
