@@ -17,7 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "semantic": "^2.2.6",
+    "semantic": "^2.2.7",
     "jquery-ui": "^1.12.1",
     "chartist": "^0.10.1",
     "semantic-ui-calendar": "^0.0.6",

@@ -35,3 +35,14 @@
 *.pdf binary
 *.phar binary
 *.ttf binary
+*.zip binary
+*.jar binary
+*.doc binary
+*.docx binary
+*.dot binary
+*.xls binary
+*.otf binary
+*.eot binary
+*.ttf binary
+*.ttf binary
+*.woff binary
