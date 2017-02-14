@@ -47,11 +47,11 @@
                     </div>
 
                     <div class="field">
-                        <?= $this->Form->input( 'location_city' , [ 'type' => 'text' , 'label' => 'City' , 'placeholder' => 'Enter City' ] ) ?>
+                        <?= $this->Form->input( 'city' , [ 'type' => 'text' , 'label' => 'City' , 'placeholder' => 'Enter City' ] ) ?>
                     </div>
 
                     <div class="field">
-                        <?= $this->Form->input( 'location_state' , [
+                        <?= $this->Form->input( 'state' , [
                             'type' => 'select',
                             'options' => [
                                 'OH' => 'Ohio',
@@ -69,18 +69,18 @@
                 </div>
 
                 <div class="field">
-                    <?= $this->Form->input( 'event_name' , [ 'type' => 'text' , 'label' => 'Event Name' , 'placeholder' => 'Enter Event Name' ] ) ?>
+                    <?= $this->Form->input( 'title' , [ 'type' => 'text' , 'label' => 'Event Name' , 'placeholder' => 'Enter Event Name' ] ) ?>
                 </div>
 
                 <div class="field">
-                    <?= $this->Form->input( 'event_description' , [ 'type' => 'textarea' , 'label' => 'Event Description (0/75 words)' , 'placeholder' => 'Enter Event Description' ] ) ?>
+                    <?= $this->Form->input( 'description' , [ 'type' => 'textarea' , 'label' => 'Event Description (0/75 words)' , 'placeholder' => 'Enter Event Description' ] ) ?>
                 </div>
 
                 <p><strong>DESCRIPTION HELP SECTION</strong></p>
 
                 <div class="three fields">
                     <div class="field">
-                        <?= $this->Form->input( 'event_date' , [ 'type' => 'calendar' , 'label' => 'Event Date' , 'placeholder' => 'Enter Date' , 'templateVars' => [ 'calendar_id' => 'event-calendar' ] ] ) ?>
+                        <?= $this->Form->input( 'date' , [ 'type' => 'calendar' , 'label' => 'Event Date' , 'placeholder' => 'Enter Date' , 'templateVars' => [ 'calendar_id' => 'event-calendar' ] ] ) ?>
                     </div>
 
                     <div class="field">
@@ -123,7 +123,7 @@
                                                 <?= $this->Form->file( 'media[0][file]' , [ 'id' => 'media-1-upload' , 'class' => 'file upload' , 'style' => 'display: none' ] ) ?>
                                                 &nbsp;<span class="status">Choose Media</span>
                                         </label>
-                                        <?= $this->Form->hidden( 'media[0][filename]' , [ 'class' => 'order-confirmation filename' , 'value' => '' ] ) ?>
+                                        <?= $this->Form->hidden( 'media[0][urn]' , [ 'class' => 'urn' , 'value' => '' ] ) ?>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -156,7 +156,7 @@
                                                 <?= $this->Form->file( 'media[1][file]' , [ 'id' => 'media-2-upload' , 'class' => 'file upload' , 'style' => 'display: none' ] ) ?>
                                                 &nbsp;<span class="status">Choose Media</span>
                                         </label>
-                                        <?= $this->Form->hidden( 'media[1][filename]' , [ 'class' => 'filename' , 'value' => '' ] ) ?>
+                                        <?= $this->Form->hidden( 'media[1][urn]' , [ 'class' => 'urn' , 'value' => '' ] ) ?>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -189,7 +189,7 @@
                                                 <?= $this->Form->file( 'media[2][file]' , [ 'id' => 'media-3-upload' , 'class' => 'file upload' , 'style' => 'display: none' ] ) ?>
                                                 &nbsp;<span class="status">Choose Media</span>
                                         </label>
-                                        <?= $this->Form->hidden( 'media[2][filename]' , [ 'class' => 'order-confirmation filename' , 'value' => '' ] ) ?>
+                                        <?= $this->Form->hidden( 'media[2][urn]' , [ 'class' => 'urn' , 'value' => '' ] ) ?>
                                     </div>
                                 </div>
                                 <div class="field">
