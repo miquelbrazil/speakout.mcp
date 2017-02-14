@@ -25,8 +25,8 @@ class UsersSeed extends AbstractSeed
                 'password' => '$2y$10$r4PHDOVlTmcPPGYBFiFF/.Y0oFBjz1Hy0XyGfkYpk0aOgkD7l.Y9u',
                 'fullname' => 'Miquel Brazil',
                 'role' => 'admin',
-                '_created' => '2016-11-24 12:57:54',
-                '_modified' => '2016-11-24 12:57:54',
+                'created' => '2016-11-24 12:57:54',
+                'updated' => '2016-11-24 12:57:54',
             ],
             [
                 'id' => '2',
@@ -34,8 +34,8 @@ class UsersSeed extends AbstractSeed
                 'password' => '$2y$10$tYRuJ8XSf3kBfyHzLBj/aeWFieFswh.WnD.g6yYTrg9dvnChs7mCC',
                 'fullname' => NULL,
                 'role' => 'admin',
-                '_created' => '2017-01-10 15:36:57',
-                '_modified' => '2017-01-10 15:36:57',
+                'created' => '2017-01-10 15:36:57',
+                'updated' => '2017-01-10 15:36:57',
             ],
             [
                 'id' => '3',
@@ -43,8 +43,8 @@ class UsersSeed extends AbstractSeed
                 'password' => '$2y$10$ZzdUXhsuZUybTcoqL6JVte5EvKtdoji7t9C/m71kxLA0fzitfmR7K',
                 'fullname' => NULL,
                 'role' => 'admin',
-                '_created' => '2017-01-10 15:40:49',
-                '_modified' => '2017-01-10 15:40:49',
+                'created' => '2017-01-10 15:40:49',
+                'updated' => '2017-01-10 15:40:49',
             ],
             [
                 'id' => '4',
@@ -52,8 +52,8 @@ class UsersSeed extends AbstractSeed
                 'password' => '$2y$10$rbr6sR.vvOBRhWAFkrKBJesQlMBQkDw9qNlJjLgjtcHLgIZfORBki',
                 'fullname' => NULL,
                 'role' => 'admin',
-                '_created' => '2017-01-10 16:08:54',
-                '_modified' => '2017-01-10 16:08:54',
+                'created' => '2017-01-10 16:08:54',
+                'updated' => '2017-01-10 16:08:54',
             ],
             [
                 'id' => '5',
@@ -61,8 +61,8 @@ class UsersSeed extends AbstractSeed
                 'password' => '$2y$10$EY3iIrp1RC92CXf5iWvE8.zLuGbDxozDHodEsNw5iVsLMXo4.lavy',
                 'fullname' => 'Tony Larkin',
                 'role' => 'user',
-                '_created' => '2017-02-08 17:18:13',
-                '_modified' => '2017-02-08 17:18:13',
+                'created' => '2017-02-08 17:18:13',
+                'updated' => '2017-02-08 17:18:13',
             ],
         ];
 

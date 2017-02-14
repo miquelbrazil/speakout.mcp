@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateUsers extends AbstractMigration {
+class CreateMedia extends AbstractMigration {
     /**
      * Change Method.
      *
@@ -10,26 +10,30 @@ class CreateUsers extends AbstractMigration {
      * @return void
      */
     public function change() {
-        $this->table( 'users' )
-            ->addColumn( 'username' , 'string' , [
+        $this->table( 'media' )
+            ->addColumn( 'event_id' , 'integer' , [
                 'default' => null,
-                'limit' => 32,
                 'null' => false,
+                'limit' => 11
             ])
-            ->addColumn( 'password' , 'string' , [
+            ->addColumn( 'title' , 'string' , [
                 'default' => null,
-                'limit' => 255,
                 'null' => false,
+                'limit' => 64
             ])
-            ->addColumn( 'fullname' , 'string' , [
+            ->addColumn( 'description' , 'text' , [
                 'default' => null,
-                'limit' => 128,
-                'null' => true,
+                'null' => false
             ])
-            ->addColumn( 'role' , 'string' , [
+            ->addColumn( 'urn' , 'string' , [
                 'default' => null,
-                'limit' => 32,
                 'null' => true,
+                'limit' => 225
+            ])
+            ->addColumn( 'storage' , 'string' , [
+                'default' => 'LOCAL',
+                'null' => true,
+                'limit' => 32
             ])
             ->addColumn( 'created' , 'datetime' , [
                 'default' => null,
@@ -38,13 +42,6 @@ class CreateUsers extends AbstractMigration {
             ->addColumn( 'updated' , 'datetime' , [
                 'default' => null,
                 'null' => false,
-            ])
-            ->addIndex([
-                'username',
-            ],
-            [
-                'name' => 'UNIQUE_USERNAME',
-                'unique' => true,
             ])
             ->create();
     }
