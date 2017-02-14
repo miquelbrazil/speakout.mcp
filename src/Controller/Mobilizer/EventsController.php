@@ -64,9 +64,9 @@ class EventsController extends AppController {
 
         if ($this->request->is('post')) {
 
-            $this->request->data[ 'event_date' ] = FrozenTime::createFromFormat(
+            $this->request->data[ 'date' ] = FrozenTime::createFromFormat(
                 'F j, Y',
-                $this->request->data[ 'event_date' ],
+                $this->request->data[ 'date' ],
                 'America/New_York'
             );
 

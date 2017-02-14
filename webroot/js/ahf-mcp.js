@@ -100,7 +100,7 @@ $( '.upload.ui.dimmer button.submit' ).api({
 
         content.find( '.header' ).text( response.response.title );
         content.find( '.description' ).text( response.response.description );
-        uploadModal.find( 'input[type="hidden"].filename' ).val( response.response.media );
+        uploadModal.find( 'input[type="hidden"].urn' ).val( response.response.media );
 
         content.parent( '.card' ).find( 'div.image' ).first().remove();
 

@@ -79,24 +79,24 @@ class EventsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('event_name', 'create')
+            ->requirePresence('title', 'create')
             ->notEmpty('event_name');
 
         $validator
-            ->date('event_date')
-            ->requirePresence('event_date', 'create')
+            ->date('date')
+            ->requirePresence( 'date' , 'create')
             ->notEmpty('event_date');
 
         $validator
-            ->requirePresence('location_city', 'create')
+            ->requirePresence('city', 'create')
             ->notEmpty('location_city');
 
         $validator
-            ->requirePresence('location_state', 'create')
+            ->requirePresence('state', 'create')
             ->notEmpty('location_state');
 
         $validator
-            ->requirePresence('event_description', 'create')
+            ->requirePresence('description', 'create')
             ->notEmpty('event_description');
 
         $validator
