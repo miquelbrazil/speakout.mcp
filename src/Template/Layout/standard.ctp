@@ -71,8 +71,16 @@
             <div class="ui one column grid container">
                 <div class="column">
                     <div class="ui labeled icon text menu" style="margin-top: 0; margin-bottom: 0;">
-                        <a class="active item" style="padding-right: 2rem;"><i class="dashboard icon"></i>Dashboard</a>
-                        <a class="item"><i class="ticket icon"></i>New Event</a>
+                        <?= $this->Html->link(
+                                    '<i class="dashboard icon"></i>Dashboard',
+                                    [ 'controller' => 'Events' , 'action' => 'index' ],
+                                    [ 'escape' => false , 'class' => 'active item' , 'style' => 'padding-right: 2rem;' ]
+                                ); ?>
+                        <?= $this->Html->link(
+                                    '<i class="ticket icon"></i>New Event',
+                                    [ 'controller' => 'Events' , 'action' => 'add' , 'prefix' => 'mobilizer' ],
+                                    [ 'escape' => false , 'class' => 'item' ]
+                                ); ?>
                     </div>
                 </div>
             </div>
