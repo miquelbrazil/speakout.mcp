@@ -106,7 +106,7 @@
                     <tr>
                         <td><?= $this->Html->link( $media->title , 'media/' .  $media->urn , [ 'target' => '_blank' ] ) ?></td>
                         <td>JPEG</td>
-                        <td><?= $event->created->i18nFormat( 'MM/dd/YYYY h:mma'); ?></td>
+                        <td><?= $event->created->i18nFormat( 'MM/dd/YYYY h:mma' ); ?></td>
                         <td>Submitted</td>
                     </tr>
                 <?php endforeach; ?>
