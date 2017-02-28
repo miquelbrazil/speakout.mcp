@@ -79,8 +79,15 @@
                         <?= $this->Html->link(
                                     '<i class="ticket icon"></i>New Event',
                                     [ 'controller' => 'Events' , 'action' => 'add' , 'prefix' => 'mobilizer' ],
+                                    [ 'escape' => false , 'class' => 'item' , 'style' => 'padding-right: 2rem;' ]
+                                ); ?>
+                        <?php if ( $this->request->params[ 'controller' ] == 'Events' && $this->request->params[ 'action' ] == 'view' ): ?>
+                        <?= $this->Html->link(
+                                    '<i class="edit icon"></i>Edit Event',
+                                    [ 'controller' => 'Events' , 'action' => 'edit' , 'prefix' => 'mobilizer' , $event->id ],
                                     [ 'escape' => false , 'class' => 'item' ]
                                 ); ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

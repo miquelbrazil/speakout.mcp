@@ -72,6 +72,12 @@ Router::prefix( 'mobilizer' , function ( $routes ) {
         );
 
         $routes->connect(
+            '/edit/:id',
+            [ 'controller' => 'Events' , 'action' => 'edit' ],
+            [ 'pass' => [ 'id' ] ]
+        );
+
+        $routes->connect(
             '/upload-media',
             [ 'controller' => 'Events' , 'action' => 'uploadMedia' ]
         );

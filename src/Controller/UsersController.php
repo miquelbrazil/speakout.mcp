@@ -116,9 +116,18 @@ class UsersController extends AppController
             $user = $this->Auth->identify();
 
             if ( $user ) {
-                
+
                 $this->Auth->setUser( $user );
-                return $this->redirect( $this->Auth->redirectUrl() );
+
+                if ( $user[ 'role' ] == 'admin' ) {
+
+                    return $this->redirect( '/admin/dashboard' );
+
+                } elseif ( $user[ 'role' ] == 'mobilizer' ) {
+
+                    return $this->redirect( '/mobilizer/dashboard' );
+
+                }
 
             } else {
 

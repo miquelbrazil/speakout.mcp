@@ -51,11 +51,14 @@ class MediaTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
-    {
+    public function validationDefault(Validator $validator) {
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
+
+        $validator
+            ->requirePresence( 'urn' , 'create' )
+            ->notEmpty( 'urn' , 'Please be sure to upload valid media file' );
 
         return $validator;
     }

@@ -1,15 +1,18 @@
 <?php
     $campaigns = [
-        1 => 'World AIDS Day',
-        2 => 'Keep The Promise',
-        3 => 'International Condom Day'
+        1 => 'Martin Luther King Jr. Day (January 16, 2017)',
+        2 => 'International Condom Day (February 13, 2017)',
+        3 => 'National HIV Testing Day (June 27, 2017)',
+        4 => 'World AIDS Day (December 1, 2017)',
+        5 => 'Local Events (Various Dates)'
     ];
     $regions = [
-        '1' => 'Midwest',
-        '2' => 'South',
-        '3' => 'North Atlantic',
-        '4' => 'West',
-        '5' => 'International',
+        1 => 'Midwest',
+        2 => 'South',
+        3 => 'Northeast',
+        4 => 'Mid-Atlantic',
+        5 => 'West',
+        6 => 'International',
     ];
 ?>
 
@@ -103,8 +106,8 @@
                     <tr>
                         <td><?= $this->Html->link( $media->title , 'media/' .  $media->urn , [ 'target' => '_blank' ] ) ?></td>
                         <td>JPEG</td>
-                        <td>01/10/2017 2:18PM</td>
-                        <td>Pending Approval</td>
+                        <td><?= $event->created->i18nFormat( 'MM/dd/YYYY h:mma'); ?></td>
+                        <td>Submitted</td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

@@ -40,7 +40,7 @@ class UsersTable extends Table
             'events' => [
                 'Model.beforeSave' => [
                     'created' => 'new',
-                    'modified' => 'always',
+                    'updated' => 'always',
                 ]
             ]
         ]);

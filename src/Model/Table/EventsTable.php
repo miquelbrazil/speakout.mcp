@@ -75,33 +75,50 @@ class EventsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+            ->integer( 'id' )
+            ->allowEmpty( 'id' , 'create');
 
         $validator
-            ->requirePresence('title', 'create')
-            ->notEmpty('event_name');
+            ->requirePresence( 'campaign_id' , 'create' )
+            ->notEmpty( 'campaign_id' , 'Please select a Campaign' );
 
         $validator
-            ->date('date')
+            ->requirePresence( 'title' , 'create' )
+            ->notEmpty( 'title' )
+            ->notBlank( 'title' , 'You cannot submit a blank Event Name');
+
+        $validator
+            ->date( 'date' )
             ->requirePresence( 'date' , 'create')
-            ->notEmpty('event_date');
+            ->notEmpty( 'date' );
 
         $validator
-            ->requirePresence('city', 'create')
-            ->notEmpty('location_city');
+            ->requirePresence( 'city' , 'create' )
+            ->notEmpty( 'city' );
 
         $validator
-            ->requirePresence('state', 'create')
-            ->notEmpty('location_state');
+            ->requirePresence( 'state' , 'create' )
+            ->notEmpty( 'state' );
 
         $validator
-            ->requirePresence('description', 'create')
-            ->notEmpty('event_description');
+            ->requirePresence( 'description' , 'create')
+            ->notEmpty( 'description' )
+            ->notBlank( 'description' , 'You cannot submit a blank Event Description')
+            ->add( 'description' , 'custom' , [
+                'rule' => function ( $value , $context ) {
+                    if ( str_word_count( $value ) > 75 ) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                },
+                'message' => 'Your Event Description must be a minimum of 75 words.'
+            ]);
 
         $validator
-            ->integer('total_participants')
-            ->allowEmpty('total_participants');
+            ->requirePresence( 'total_participants' , 'create')
+            ->integer( 'total_participants' , 'Value must be a whole number' )
+            ->notEmpty('total_participants');
 
         return $validator;
     }

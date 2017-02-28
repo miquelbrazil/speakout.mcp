@@ -57,7 +57,7 @@ class AppController extends Controller
         $this->viewBuilder()->layout( 'standard' );
 
         $this->set( 'user_fullname' , $this->Auth->user( 'fullname' ) );
-        $this->set( 'user' , $this->Auth->user( 'username' ) );
+        $this->set( 'user' , $this->Auth->user() );
     }
 
     /**

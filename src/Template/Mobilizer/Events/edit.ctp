@@ -4,9 +4,9 @@
         <!--<?php debug( $event ); ?>-->
         <?php if( !isset( $event->media ) ) { $event->media = [ 0 , 1 , 2 ]; } ?>
 
-        <h1 class="ui top attached inverted medium header"> Add New Event</h1>
+        <h1 class="ui top attached inverted medium header">Edit Event</h1>
 
-        <?= $this->Form->create( $event , [ 'url' => [ 'controller' => 'Events' , 'action' => 'add' ] , 'id' => 'new-event' , 'class' => 'ui form' , 'type' => 'file' ] ); ?>
+        <?= $this->Form->create( $event , [ 'url' => [ 'controller' => 'Events' , 'action' => 'edit' , $event->id ] , 'id' => 'new-event' , 'class' => 'ui form' , 'type' => 'file' ] ); ?>
 
         <div class="ui attached segment">
 

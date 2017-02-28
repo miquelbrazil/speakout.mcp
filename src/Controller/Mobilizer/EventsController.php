@@ -30,7 +30,19 @@ class EventsController extends AppController {
      * @return \Cake\Network\Response|null
      */
     public function index() {
-        $events = $this->paginate( $this->Events , [ 'contain' => [ 'Users' ] ] );
+
+        $events = $this->paginate( $this->Events , [
+            'contain' => [ 'Users' ],
+            'conditions' => [
+                'OR' => [
+                    [ 'Events.user_id' => $this->Auth->user( 'id' ) ],
+                    [ 'Events.user_id' => 0 ]
+                ]
+            ],
+            'order' => [
+                'Events.date' => 'desc'
+            ]
+        ]);
 
         $this->set(compact('events'));
         $this->set('_serialize', ['events']);
@@ -43,9 +55,8 @@ class EventsController extends AppController {
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view( $id = null )
-    {
-        $event = $this->Events->get($id, [
+    public function view( $id = null ) {
+        $event = $this->Events->get( $id , [
             'contain' => [ 'Users', 'Media' ]
         ]);
 
@@ -86,11 +97,34 @@ class EventsController extends AppController {
             $event->user_id = 1;
 
             if ($this->Events->save($event)) {
-                $this->Flash->success(__('The event has been saved.'));
 
+                $this->Flash->success( __( 'Your new Event has been successfully saved.') );
                 return $this->redirect(['action' => 'index']);
+
             } else {
-                $this->Flash->error(__('The event could not be saved. Please, try again.'));
+
+                $error_labels = [
+                    'title' => 'Event Name',
+                    'description' => 'Event Description',
+                    'total_participants' => 'Total Participants',
+                    'campaign_id' => 'Campaign',
+                    'media' => 'Media'
+                ];
+
+                $error_messages = [];
+
+                foreach( $event->errors() as $field => $errors ) {
+                    foreach( $errors as $error ) {
+
+                        if ( is_array( $error ) ) {
+                            $error = $error[ 'urn' ][ '_empty' ];
+                        }
+                        $error_messages[] = '<li>' . $error_labels[ $field ] . ': ' . $error . '</li>';
+                    }
+                }
+
+                $this->Flash->eventError( $error_messages );
+
             }
         }
 
@@ -134,11 +168,11 @@ class EventsController extends AppController {
      * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $event = $this->Events->get($id, [
-            'contain' => []
+            'contain' => [ 'Media' ]
         ]);
+        
         if ($this->request->is(['patch', 'post', 'put'])) {
             $event = $this->Events->patchEntity($event, $this->request->data);
             if ($this->Events->save($event)) {
