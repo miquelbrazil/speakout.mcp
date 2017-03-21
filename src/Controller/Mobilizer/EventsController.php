@@ -94,7 +94,7 @@ class EventsController extends AppController {
 
             log_data( 'event' , $event );
 
-            $event->user_id = 1;
+            $event->user_id = $this->Auth->user( 'id' );
 
             if ($this->Events->save($event)) {
 
@@ -172,7 +172,7 @@ class EventsController extends AppController {
         $event = $this->Events->get($id, [
             'contain' => [ 'Media' ]
         ]);
-        
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $event = $this->Events->patchEntity($event, $this->request->data);
             if ($this->Events->save($event)) {
