@@ -1,1 +1,1 @@
-<?= $this->element( 'events/grid' ) ?>
+<?= $this->element( 'Events/grid' ) ?>
