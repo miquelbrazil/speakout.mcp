@@ -14,7 +14,6 @@
         '5' => 'West',
         '6' => 'International',
     ];
-
 ?>
 
 <?php if( $events->count() ): ?>
