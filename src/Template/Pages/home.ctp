@@ -38,6 +38,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+
+    <?= $this->Html->script( 'google.js' ); ?>
 </head>
 <body class="home">
     <header>
