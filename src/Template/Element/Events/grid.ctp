@@ -26,7 +26,7 @@
             <th>Event Date</th>
             <th>Region</th>
             <th>Mobilizer</th>
-            <th>Status</th>
+            <!--<th>Status</th>-->
         </tr>
     </thead>
 
@@ -39,7 +39,7 @@
             <td><?= $event->date ?></td>
             <td><?= $regions[ $event->region_id ] ?></td>
             <td><?= $event->user ? $event->user->fullname : 'ALL' ?></td>
-            <td>Submitted</td>
+            <!--<td>Submitted</td>-->
         </tr>
         <?php endforeach; ?>
     </tbody>

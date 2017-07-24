@@ -17,7 +17,6 @@ class EventsController extends AppController {
 
         parent::initialize();
         $this->loadComponent('RequestHandler');
-        $this->loadModel( 'Events' );
     }
 
     public function beforeFilter( Event $event ) {
@@ -31,18 +30,18 @@ class EventsController extends AppController {
      */
     public function index() {
 
-        $events = $this->paginate( $this->Events , [
-            'contain' => [ 'Users' ],
-            'conditions' => [
+        $events = $this->Events->find()
+            ->contain([ 'Users' ])
+            ->where([
                 'OR' => [
                     [ 'Events.user_id' => $this->Auth->user( 'id' ) ],
                     [ 'Events.user_id' => 0 ]
                 ]
-            ],
-            'order' => [
+            ])
+            ->order([
                 'Events.date' => 'desc'
-            ]
-        ]);
+            ])
+            ->all();
 
         $this->set(compact('events'));
         $this->set('_serialize', ['events']);
@@ -75,11 +74,13 @@ class EventsController extends AppController {
 
         if ($this->request->is('post')) {
 
-            $this->request->data[ 'date' ] = FrozenTime::createFromFormat(
-                'F j, Y',
-                $this->request->data[ 'date' ],
-                'America/New_York'
-            );
+            if ( $this->request->data[ 'date' ] ) {
+                $this->request->data[ 'date' ] = FrozenTime::createFromFormat(
+                    'F j, Y',
+                    $this->request->data[ 'date' ],
+                    'America/New_York'
+                );
+            }
 
             log_data( 'request' , $this->request );
 
@@ -108,7 +109,8 @@ class EventsController extends AppController {
                     'description' => 'Event Description',
                     'total_participants' => 'Total Participants',
                     'campaign_id' => 'Campaign',
-                    'media' => 'Media'
+                    'media' => 'Media',
+                    'date' => 'Event Date'
                 ];
 
                 $error_messages = [];

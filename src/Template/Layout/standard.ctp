@@ -82,11 +82,6 @@
                                     [ 'escape' => false , 'class' => 'item' , 'style' => 'padding-right: 2rem;' ]
                                 ); ?>
                         <?php if ( $this->request->params[ 'controller' ] == 'Events' && $this->request->params[ 'action' ] == 'view' ): ?>
-                        <?= $this->Html->link(
-                                    '<i class="edit icon"></i>Edit Event',
-                                    [ 'controller' => 'Events' , 'action' => 'edit' , 'prefix' => 'mobilizer' , $event->id ],
-                                    [ 'escape' => false , 'class' => 'item' ]
-                                ); ?>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -110,7 +105,7 @@
 
     <?= $this->fetch('footer_js') ?>
 
-    <script>
+    <!--<script>
         new Chartist.Bar('.ct-chart', {
           labels: ['White', 'Black', 'Hispanic', 'Other' ],
           series: [
@@ -124,7 +119,7 @@
             showGrid: false
           }
         });
-    </script>
+    </script>-->
 
 </body>
 </html>

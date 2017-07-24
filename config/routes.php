@@ -71,11 +71,11 @@ Router::prefix( 'mobilizer' , function ( $routes ) {
             [ 'pass' => [ 'id' ] ]
         );
 
-        $routes->connect(
+        /*$routes->connect(
             '/edit/:id',
             [ 'controller' => 'Events' , 'action' => 'edit' ],
             [ 'pass' => [ 'id' ] ]
-        );
+        );*/
 
         $routes->connect(
             '/upload-media',
