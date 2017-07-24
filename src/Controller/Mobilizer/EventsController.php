@@ -17,7 +17,6 @@ class EventsController extends AppController {
 
         parent::initialize();
         $this->loadComponent('RequestHandler');
-        $this->loadModel( 'Events' );
     }
 
     public function beforeFilter( Event $event ) {
@@ -31,18 +30,18 @@ class EventsController extends AppController {
      */
     public function index() {
 
-        $events = $this->paginate( $this->Events , [
-            'contain' => [ 'Users' ],
-            'conditions' => [
+        $events = $this->Events->find()
+            ->contain([ 'Users' ])
+            ->where([
                 'OR' => [
                     [ 'Events.user_id' => $this->Auth->user( 'id' ) ],
                     [ 'Events.user_id' => 0 ]
                 ]
-            ],
-            'order' => [
+            ])
+            ->order([
                 'Events.date' => 'desc'
-            ]
-        ]);
+            ])
+            ->all();
 
         $this->set(compact('events'));
         $this->set('_serialize', ['events']);
