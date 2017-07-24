@@ -105,7 +105,7 @@
 
     <?= $this->fetch('footer_js') ?>
 
-    <script>
+    <!--<script>
         new Chartist.Bar('.ct-chart', {
           labels: ['White', 'Black', 'Hispanic', 'Other' ],
           series: [
@@ -119,7 +119,7 @@
             showGrid: false
           }
         });
-    </script>
+    </script>-->
 
 </body>
 </html>
