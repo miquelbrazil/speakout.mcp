@@ -15,6 +15,10 @@ $( '#event-calendar' ).calendar({
     },
 });
 
+if ( $( '#event-calendar input#date' ).first().attr( 'val' ) ) {
+    $( '#event-calendar' ).calendar( 'set date' , $( '#event-calendar input#date' ).first().attr( 'val' ) );
+};
+
 $( '.card .button' ).click( function( $this ) {
     $(this).parent( '.card' )
         .dimmer( 'show' );

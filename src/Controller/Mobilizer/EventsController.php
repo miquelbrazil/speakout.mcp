@@ -74,11 +74,13 @@ class EventsController extends AppController {
 
         if ($this->request->is('post')) {
 
-            $this->request->data[ 'date' ] = FrozenTime::createFromFormat(
-                'F j, Y',
-                $this->request->data[ 'date' ],
-                'America/New_York'
-            );
+            if ( $this->request->data[ 'date' ] ) {
+                $this->request->data[ 'date' ] = FrozenTime::createFromFormat(
+                    'F j, Y',
+                    $this->request->data[ 'date' ],
+                    'America/New_York'
+                );
+            }
 
             log_data( 'request' , $this->request );
 
@@ -107,7 +109,8 @@ class EventsController extends AppController {
                     'description' => 'Event Description',
                     'total_participants' => 'Total Participants',
                     'campaign_id' => 'Campaign',
-                    'media' => 'Media'
+                    'media' => 'Media',
+                    'date' => 'Event Date'
                 ];
 
                 $error_messages = [];

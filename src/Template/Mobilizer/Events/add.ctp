@@ -154,7 +154,7 @@
 
                 <div class="three fields">
                     <div class="field">
-                        <?= $this->Form->input( 'date' , [ 'type' => 'calendar' , 'label' => 'Event Date*' , 'placeholder' => 'Enter Date' , 'value' => isset( $event->date ) ? $event->date->i18nFormat( 'MMMM d, YYYY') : false , 'templateVars' => [ 'calendar_id' => 'event-calendar' ] ] ) ?>
+                        <?= $this->Form->input( 'date' , [ 'type' => 'calendar' , 'label' => 'Event Date*' , 'placeholder' => 'Enter Date' , 'value' => isset( $event->date ) ? $event->date->i18nFormat( 'MM/dd/YYYY') : false , 'templateVars' => [ 'calendar_id' => 'event-calendar' ] ] ) ?>
                     </div>
 
                     <div class="field">
