@@ -44,7 +44,7 @@
     	<main class="sixteen wide column" style="height: 100%;">
             <article class="ui middle aligned centered relaxed padded grid" style="height: inherit;">
                 <div class="four wide column">
-                    <header class="ui top attached header">
+                    <header class="ui top attached segment">
                         <img class="ui fluid image" src="webroot/img/ahf-mcp-logo.png" />
                     </header>
                     <div class="ui bottom attached segment">
